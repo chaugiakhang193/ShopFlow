@@ -1,0 +1,13 @@
+# Environment files hold local secrets. Only the example file is tracked.
+.env
+.env.*
+!.env.example
+
+# Dependencies and build output
+node_modules/
+dist/
+coverage/
+
+# Logs
+*.log
+npm-debug.log*
