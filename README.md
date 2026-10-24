@@ -31,7 +31,7 @@ retries, dead letters, overselling under load, and clients that miss updates whi
     |                 Postgres                 inventory-worker  payment-worker
     |                                                |               |
     |                                                v               |
-    |                                              Redis             |
+    |                                              Redis (Pro)       |
     |                                                                |
     |                         order status events                    |
     |                  RabbitMQ <------------------------------------+
@@ -42,14 +42,29 @@ retries, dead letters, overselling under load, and clients that miss updates whi
 
 ## Status
 
-Early development. The services above are being built one at a time, each in small commits that can be checked out
-and run on their own.
+Early development. `order-service` boots with a health check against Postgres. The workers and the
+notification gateway are added one at a time, each in small commits that can be checked out and run on their own.
 
 ## Quickstart
 
-Requirements: Docker with Compose v2, Node.js 24.
+Requirements: Docker with Compose v2, Node.js 24.11 or later.
 
-Setup commands will be listed here once the first service is runnable.
+```bash
+cp .env.example .env
+docker compose up -d --wait
+npm ci
+npm run start:dev
+```
+
+In another terminal:
+
+```bash
+curl http://127.0.0.1:3010/health
+# {"status":"ok","database":"up"}
+```
+
+The RabbitMQ management UI is at http://127.0.0.1:15674 (user and password from `.env`).
+Stop the stack with `docker compose down`; add `-v` to drop the data volumes.
 
 ## Free vs Pro
 
