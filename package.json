@@ -16,7 +16,7 @@
     "start:dev": "nest start --watch",
     "start:debug": "nest start --debug --watch",
     "start:prod": "node dist/apps/order-service/apps/order-service/src/main.js",
-    "lint": "oxlint --type-aware apps/",
+    "lint": "oxlint --type-aware apps/ libs/",
     "test": "vitest run",
     "test:watch": "vitest",
     "test:cov": "vitest run --coverage",

@@ -21,7 +21,12 @@
     "types": [
       "vitest/globals",
       "node"
-    ]
+    ],
+    "paths": {
+      "@shopflow/boundary": [
+        "./libs/boundary/src/index.ts"
+      ]
+    }
   },
   "files": [],
   "references": [
@@ -30,6 +35,9 @@
     },
     {
       "path": "./apps/order-service/tsconfig.spec.json"
+    },
+    {
+      "path": "./libs/boundary/tsconfig.spec.json"
     }
   ]
 }
